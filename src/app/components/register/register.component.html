@@ -1,0 +1,114 @@
+<div class="auth-page-wrapper pt-5">
+  <!-- auth page bg -->
+  <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
+      <div class="bg-overlay"></div>
+
+      <div class="shape">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
+              <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
+          </svg>
+      </div>
+  </div>
+
+  <!-- auth page content -->
+  <div class="auth-page-content">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="text-center mt-sm-5 mb-4 text-white-50">
+                    <h2 class="titleApp">JOBI</h2>
+                  </div>
+              </div>
+          </div>
+          <!-- end row -->
+
+          <div class="row justify-content-center">
+              <div class="col-md-8 col-lg-6 col-xl-5">
+                  <div class="card mt-4">
+
+                      <div class="card-body p-4">
+                          <div class="text-center mt-2">
+                              <h5 class="text-primary">Créer un nouveau compte</h5>
+                              <p class="text-muted"></p>
+                          </div>
+                          <div class="p-2 mt-4">
+                              <form class="needs-validation"[formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+                                  <div class="mb-3">
+                                      <label for="username" class="form-label">Nom d'utilisateur <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" id="username" formControlName="fullName">
+                                      <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched">
+                                        <small class="error-input" *ngIf="registerForm.get('fullName')?.errors?.['required']">Le nom d'utilisateur est
+                                          requis.</small>
+                                        <small class="error-input" *ngIf="registerForm.get('fullName')?.errors?.['minlength']">Ce champ doit contenir
+                                          au moins 6 caractères..</small>
+                                      </div> 
+                                  </div>
+
+                                  <div class="mb-3">
+                                      <label for="username" class="form-label">Titre du profil <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" id="username" formControlName="profileTitle">
+                                      <div *ngIf="registerForm.get('profileTitle')?.invalid && registerForm.get('profileTitle')?.touched">
+                                        <small class="error-input" *ngIf="registerForm.get('profileTitle')?.errors?.['required']">Le titre du profil est
+                                          requis.</small>
+                                        <small class="error-input" *ngIf="registerForm.get('profileTitle')?.errors?.['minlength']">Ce champ doit contenir
+                                          au moins 6 caractères..</small>
+                                      </div>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <label for="username" class="form-label">E-mail <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="username" formControlName="email">
+                                    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                                      <small class="error-input" *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis.</small>
+                                      <small class="error-input" *ngIf="registerForm.get('email')?.errors?.['email']">Format d'email
+                                        invalide.</small>
+                                    </div>
+                                </div>
+
+
+                                  <div class="mb-3">
+                                      <label class="form-label" for="password-input">Password <span class="text-danger">*</span></label>
+                                      <div class="position-relative auth-pass-inputgroup">
+                                          <input type="password" class="form-control" formControlName="password" id="password-input">
+                                          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                                            <small class="error-input" *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est
+                                              requis.</small>
+                                            <small class="error-input" *ngIf="registerForm.get('password')?.errors?.['minlength']">Le mot de passe doit
+                                              contenir au moins 6 caractères..</small>
+                                          </div>
+                                      </div>
+                                  </div>  
+                                  <div class="mt-4">
+                                      <button class="btn btn-primary w-100" [disabled]="registerForm.invalid || showLoader" type="submit">
+                                        <span class="d-flex align-items-center">
+                                            <span class="spinner-border flex-shrink-0" role="status" *ngIf="showLoader">
+                                                <span class="visually-hidden">Inscription ...</span>
+                                            </span>
+                                            <span class="flex-grow-1 ms-2">
+                                                Valider
+                                            </span>
+                                        </span>
+                                      </button>
+                                  </div> 
+                              </form> 
+                          </div>
+                      </div>
+                      <!-- end card body -->
+                  </div>
+                  <!-- end card -->
+
+                  <div class="mt-4 text-center">
+                      <p class="mb-0">Vous avez un compte ? <a routerLink="/login" class="fw-semibold text-primary text-decoration-underline"> Se Connecter </a> </p>
+                  </div>
+
+              </div>
+          </div>
+          <!-- end row -->
+      </div>
+      <!-- end container -->
+  </div>
+  <!-- end auth page content -->
+
+   
+</div>

@@ -1,0 +1,63 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="roleCurrentUser=='ADMIN'">
+            <div class="col-xxl-12 order-xxl-0 order-first">
+                <div class="d-flex flex-column h-100">
+                    <div class="row h-100">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                <i class="ri-money-dollar-circle-fill align-middle"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="text-uppercase fw-medium fs-12 text-muted mb-1">Candidats</p>
+                                            <h4 class=" mb-0"><span class="counter-value" data-target="2390.68">{{stats.users}}</span></h4>
+                                        </div> 
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                <i class="ri-arrow-up-circle-fill align-middle"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="text-uppercase fw-medium fs-12 text-muted mb-1">Secteurs d'activité</p>
+                                            <h4 class=" mb-0"><span class="counter-value" data-target="19523.25">{{stats.sectors}}</span></h4>
+                                        </div> 
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                <i class="ri-arrow-down-circle-fill align-middle"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <p class="text-uppercase fw-medium fs-12 text-muted mb-1">Offres d'emploi</p>
+                                            <h4 class=" mb-0"><span class="counter-value" data-target="14799.44">{{stats.jobs}}</span></h4>
+                                        </div> 
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+ 
+                </div>
+            </div><!-- end col --> 
+        </div>
+    </div>

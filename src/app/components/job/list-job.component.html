@@ -1,0 +1,71 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+          <h4 class="mb-sm-0">Liste des Offres d'emploi</h4>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row g-2">
+          <div class="col-sm-9">
+            <div class="search-box">
+              <input type="text" [(ngModel)]="term" class="form-control" id="searchMemberList"
+                placeholder="Search for name or designation...">
+              <i class="ri-search-line search-icon"></i>
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-sm-auto ms-auto" *ngIf="roleCurrentUser=='ADMIN'">
+            <div class="list-grid-nav hstack gap-1">
+              <button class="btn btn-success addMembers-modal" routerLink="create"><i
+                  class="ri-add-fill me-1 align-bottom"></i> Ajouter un Offre D'emploi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="job-list">
+      <div class="col-lg-3 col-md-6" *ngFor="let job of jobs | filter:term">
+        <div class="card">
+          <div class="card-body"> <a href="#!">
+              <h5>{{job.title}}</h5>
+            </a>
+            <p class="text-muted">{{utilService.getTypeCompanyLabel(job.typeCompany)}}</p>
+            <div class="d-flex gap-4 mb-3">
+              <div><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> {{job.city}}</div>
+              <div><i class="ri-time-line text-primary me-1 align-bottom"></i> {{job.estimatedStartDate | date:
+                'dd/MM/yyyy'}}</div>
+            </div>
+            <p class="text-muted">{{job.jobDescription | shorten: 140: '...'}}.</p>
+            <div class="hstack gap-2">
+              <span
+                class="badge bg-warning-subtle text-warning">{{utilService.getRemoteWorkingLabel(job.remoteWorking)}}</span>
+              <span
+                class="badge bg-success-subtle text-primary">{{utilService.getTypeOfContractLabel(job.typeOfContract)}}</span>
+              <span class="badge bg-primary-subtle text-dark">Experiences :
+                {{utilService.getExperienceLabel(job.experiences)}}</span>
+            </div>
+            <div class="btns">
+              <div *ngIf="roleCurrentUser=='ADMIN'" class="mt-4 hstack gap-2 rightBtn"> <a
+                  [routerLink]="['update', job.id]" class="btn btn-danger btn-sm">Modifier</a> </div>
+              <div class="mt-4 hstack gap-2 rightBtn"> <a [routerLink]="['show', job.id]"
+                  class="btn btn-primary btn-sm">Plus Détails</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="status" *ngIf="showLoader" class="d-flex align-items-center justify-content-center">
+        <div class="text-center mb-3">
+          <a href="javascript:void(0);" class="text-primary"><i
+              class="mdi mdi-loading mdi-spin fs-20 align-middle me-2"></i> Loading </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

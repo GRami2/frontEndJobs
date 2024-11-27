@@ -1,0 +1,78 @@
+<div class="page-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Informations détaillées sur l'offre de {{jobDetails.title}}.</h4>
+          </div>
+        </div> 
+      </div>
+      <div class="row" id="job-list" >
+          <div class="card" *ngIf="jobDetails && !showLoader" >
+            <div class="card-body">  <a href="#!">
+                <h5>Poste : <span class="jobTitle">{{jobDetails.title}}</span></h5>
+              </a> 
+              <p class="text-muted text-truncate mb-0"><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> 
+                <span class="fw-semibold text-body">{{jobDetails.city}}</span>
+              </p> 
+
+              <p class="text-muted text-truncate mb-0">
+                Secteur d’activité du poste  : <span class="fw-semibold text-body">{{jobDetails.sectorDetails.name}}</span>
+              </p>
+
+
+              <p class="text-muted text-truncate mb-0">
+                Type de Contrat  : <span class="fw-semibold text-body badge bg-success">{{jobDetails.typeOfContract}}</span>
+              </p>
+
+              <p class="text-muted text-truncate mb-0">
+                Type d'etreprise  : <span class="fw-semibold text-body">{{utilService.getTypeCompanyLabel(jobDetails.typeCompany)}}</span>
+              </p>
+ 
+
+              <p class="text-muted text-truncate mb-0">
+                Télétravail  : <span class="fw-semibold text-body badge bg-warning">{{utilService.getRemoteWorkingLabel(jobDetails.remoteWorking)}}</span>
+              </p>
+
+              <p class="text-muted text-truncate mb-0">
+                Niveau d'expérience  : <span class="fw-semibold text-body badge bg-primary">{{utilService.getExperienceLabel(jobDetails.experiences)}}</span>
+              </p>
+
+              <p class="text-muted text-truncate mb-0">
+                Langues  : <span class="fw-semibold text-body">{{jobDetails.languages}}</span>
+              </p>
+
+              <p class="text-muted text-truncate mb-0">
+                Date de début estimée  : <span class="fw-semibold text-body">{{jobDetails.estimatedStartDate}}</span>
+              </p>
+
+              <br>
+              <p class="text-muted text-truncate mb-0">
+                Descriptif du poste  : <br>
+                <span class="fw-semibold text-body">{{jobDetails.jobDescription}}</span>
+              </p>
+              <br>
+
+              <p class="text-muted text-truncate mb-0">
+                Profil recherché  : <br>
+                <span class="fw-semibold text-body">{{jobDetails.profileRequired}}</span>
+              </p>
+              <br>
+              
+              <p class="text-muted text-truncate mb-0">
+                Compétences attendues  : <br>
+                <span class="fw-semibold text-body">{{jobDetails.skillsExpertise}}</span>
+              </p>
+ 
+            </div>
+          </div>
+
+          <div id="status" *ngIf="showLoader" class="d-flex align-items-center justify-content-center">
+            <div class="text-center mb-3">
+                <a href="javascript:void(0);" class="text-primary"><i
+                        class="mdi mdi-loading mdi-spin fs-20 align-middle me-2"></i> Loading </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
